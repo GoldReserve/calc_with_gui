@@ -444,9 +444,13 @@ class Ui_MainWindow(object):
             # print(self.btn_result.text())
 
     def results(self):
-        res = eval(self.btn_result.text())
-        self.btn_result.setText(f'{self.btn_result.text()} = {round(res, 4)}')
-        self.is_equal = True
+        try:
+            res = eval(self.btn_result.text())
+            self.btn_result.setText(f'{self.btn_result.text()} = {round(res, 4)}')
+            self.is_equal = True
+        except:
+            self.btn_result.setText('Ошибка!')
+            self.is_equal = True
 
     def pashal(self):
         self.btn_result.setText(f'Made by Saprykin A.')
