@@ -432,6 +432,21 @@ class Ui_MainWindow(object):
         self.button_division.clicked.connect(lambda: self.write_number(self.button_division.text()))
 
 
+        self.btn_equal.clicked.connect(self.results)
+
+    def write_number(self, number):
+        if self.btn_result.text() == '0' or self.is_equal:
+            self.btn_result.setText(number)
+            self.is_equal = False
+        else:
+            self.btn_result.setText(self.btn_result.text() + number)
+            # print(self.btn_result.text())
+
+    def results(self):
+        res = eval(self.btn_result.text())
+        self.btn_result.setText(f'{self.btn_result.text()} = {round(res, 4)}')
+        self.is_equal = True
+
 if __name__ == "__main__":
     import sys
 
