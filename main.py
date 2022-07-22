@@ -431,6 +431,7 @@ class Ui_MainWindow(object):
         self.buton_mult.clicked.connect(lambda: self.write_number(self.buton_mult.text()))
         self.button_division.clicked.connect(lambda: self.write_number(self.button_division.text()))
 
+        self.btn_result.clicked.connect(self.pashal)
 
         self.btn_equal.clicked.connect(self.results)
 
@@ -446,6 +447,11 @@ class Ui_MainWindow(object):
         res = eval(self.btn_result.text())
         self.btn_result.setText(f'{self.btn_result.text()} = {round(res, 4)}')
         self.is_equal = True
+
+    def pashal(self):
+        self.btn_result.setText(f'Made by Saprykin A.')
+        self.is_equal = True
+
 
 if __name__ == "__main__":
     import sys
